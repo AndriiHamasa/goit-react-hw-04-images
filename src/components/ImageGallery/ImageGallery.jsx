@@ -6,19 +6,22 @@ export const ImageGallery = ({ photos, onClick }) => {
   console.log('photos', photos);
   return (
     <ul className={css.ImageGallery}>
-      {photos.map(photo => (
-        <ImageGalleryItem
-          key={photo.id}
-          photoBigLink={photo.largeImageURL}
-          photoLink={photo.webformatURL}
-          onClick={onClick}
-        />
-      ))}
+      {photos.map(photo => {
+        console.log('photo: ===> ', photo)
+        return (
+          <ImageGalleryItem
+            key={photo.id}
+            photoBigLink={photo.largeImageURL}
+            photoLink={photo.webformatURL}
+            onClick={onClick}
+          />
+        )
+      })}
     </ul>
   );
 };
 
 ImageGallery.propTypes = {
-  photos: PropTypes.shape([]).isRequired,
+  // photos: PropTypes.shape([]).isRequired,
   onClick: PropTypes.func.isRequired,
 };
