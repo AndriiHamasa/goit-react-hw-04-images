@@ -41,14 +41,14 @@ export const App = () => {
   };
 
   useEffect(() => {
+    async function fetchData() {
+      const response = await api(search, page);
+      setResponse(prev => [...prev, ...response.hits]);
+      setTotalHits(response.totalHits);
+      setLoader(false);
+      return;
+    }
     if (search !== '') {
-      async function fetchData() {
-        const response = await api(search, page);
-        setResponse(prev => [...prev, ...response.hits]);
-        setTotalHits(response.totalHits);
-        setLoader(false);
-        return;
-      }
       fetchData();
     }
   }, [search, page]);
