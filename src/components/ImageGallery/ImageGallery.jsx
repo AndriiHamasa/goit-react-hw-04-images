@@ -3,11 +3,9 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem';
 import PropTypes from 'prop-types';
 
 export const ImageGallery = ({ photos, onClick }) => {
-  console.log('photos', photos);
   return (
     <ul className={css.ImageGallery}>
       {photos.map(photo => {
-        console.log('photo: ===> ', photo)
         return (
           <ImageGalleryItem
             key={photo.id}
@@ -22,6 +20,5 @@ export const ImageGallery = ({ photos, onClick }) => {
 };
 
 ImageGallery.propTypes = {
-  // photos: PropTypes.shape([]).isRequired,
   onClick: PropTypes.func.isRequired,
 };
